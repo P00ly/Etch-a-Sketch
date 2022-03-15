@@ -4,28 +4,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>etch-a-sketch</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <link rel="stylesheet" href="style.css">
+    <title>etch-a-sketch</title>
 </head>
+
 <body>
-    
-    <div class="grid-container"></div>
-
+<header>
+    <h1 class="title">Etch-A-Sketch</h1>
+</header>
+<main>
+    <div id="grid-container"></div>
     <div class="controls-section">
-        <div class="slider-container">
-            <input class="slider" type="range" min="16" max="100" value="16"> 
-        </div>
-        <div class="color-select-container">
-            <input class="color-selector" type="color" value="black">
-        </div>
-        <div class="rainbow-container"></div>
-        <div class="clearbtn-container">
-         <button class="clear-button">Clear</button>
-        </div>
+        <input class="color-selector" type="color" value="black">
+        <button class="colorbtn">Color mode</button>
+        <button class="rainbowbtn">Rainbow mode</button>
+        <button class="erasebtn">Erase</button>
+        <button class="clear-button">Clear</button>
+        <input type="text" id="sliderValue" class="slider-value" value="16">
+        <input id="sizeSlider" class="slider" type="range" min="16" max="64" value="1"
+                oninput="updateSliderValue(this.value);" onchange="updateSliderValue(this.value);"> 
     </div>
+</main>
 
-
-
+<footer class="footer">
+    <p>Alex Marsh
+        <a href="https://github.com/P00ly" target="_blank" <i class="fab fa-github"></i></a>
+    </p>
+</footer>
     <script src="app.js"></script>
 </body>
 </html>
