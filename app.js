@@ -55,8 +55,38 @@ sizeSlider_input.addEventListener('input', function () {
 });
 
 //Clear grid button
-const clear = document.
+const value = sizeSlider_input.value
+cell = container_div.children;
+const clear = document.getElementById('clearbtn');
+clear.addEventListener('click', clearFunction);
 
+function clearFunction() {
+    for (let i = 0; i < value * value; i++) {
+        cell[i].style.backgroundColor = 'white';
+    }
+};
+
+//Rainbow button 
+const rainbow = document.getElementById('rainbowbtn');
+rainbow.addEventListener('click', rainbowfunc)
+
+function rainbowfunc() {
+    for (let i = 0; i < value * value; i++)
+        cell[i].addEventListener('mouseover', rainbowBackground);  
+};
+
+function rainbowBackground(event) {
+    event.target.style.backgroundColor = randomColor();
+};
+
+function randomColor() {
+    let characters = '0123456789ABCDEF';
+    let hash = '#';
+    for (let i = 0; i < 6; i++) {
+        color = hash += characters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+};
 
 
 window.onload = () => {
