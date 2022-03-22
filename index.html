@@ -18,15 +18,20 @@
 <main>
     <div id="grid-container"></div>
     <div class="controls-section">
-        <input class="color-selector" type="color" value="black">
+        <input id="colorSelector" class="color-selector" type="color" value="#000000">
         <button class="colorbtn">Color mode</button>
         <button class="rainbowbtn">Rainbow mode</button>
         <button class="erasebtn">Erase</button>
         <button class="clear-button">Clear</button>
-        <input type="text" id="sliderValue" class="slider-value" value="16">
-        <input id="sizeSlider" class="slider" type="range" min="16" max="64" value="1"
-                oninput="updateSliderValue(this.value);" onchange="updateSliderValue(this.value);"> 
+        <div id="sliderValue" class="slider-value">16 x 16</div>
+        <input id="sizeSlider" class="slider" type="range" min="16" max="64" value="16">
+                
     </div>
+
+    <div id="container">
+    </div>
+
+
 </main>
 
 <footer class="footer">
@@ -34,6 +39,6 @@
         <a href="https://github.com/P00ly" target="_blank" <i class="fab fa-github"></i></a>
     </p>
 </footer>
-    <script src="app.js"></script>
-</body>
+</body>  
 </html>
+<script src="app.js"></script>
