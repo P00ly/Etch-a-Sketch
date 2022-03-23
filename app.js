@@ -4,20 +4,19 @@ const default_color = '#000000'; //set default color to black
 
 //Create Grid 
 const container_div = document.getElementById("grid-container");
-const colorSelector = document.getElementById("colorSelector");
 
 function makeGrid() { 
     for (let i = 0; i < 256; i++) {
         const cell = document.createElement("div");
         cell.classList.add("grid-item");
-        cell.addEventListener('mouseover', colorSelect);
+        cell.addEventListener('mouseover', defaultColor);
         container_div.appendChild(cell);
     };
 };
 
-//Color Selector
-function colorSelect(event) {
-    event.target.style.backgroundColor = colorSelector.value;
+//Default Color function
+function defaultColor(event) {
+    event.target.style.backgroundColor = default_color;
 };
 
 
@@ -50,9 +49,7 @@ function changeSize() {
     for (let i = 0; i < (value * value); i++) {
         const cell = document.createElement('div');
         cell.classList.add('grid-item');
-        cell.addEventListener('mouseover', function (event) {
-            event.target.style.backgroundColor = colorSelector.value
-        })
+        cell.addEventListener('mouseover', defaultColor)
         container_div.appendChild(cell);
     }
 };
@@ -93,18 +90,35 @@ function randomColor() {
     return color;
 };
 
-//Color mode button
-const colorMode = document.getElementById('colorbtn');
-colorMode.addEventListener('click', colorModeFunc);
-function colorModeFunc() {
+//Black mode button
+const blackMode = document.getElementById('blackbtn');
+blackMode.addEventListener('click', blackModeFunc);
+
+function blackModeFunc() {
     let value = sizeSlider_input.value;
     let cell = container_div.children;
     for (let i = 0; i < value * value; i++){
-        cell[i].addEventListener('mouseover', setInk)
+        cell[i].addEventListener('mouseover', blackInk)
     }
 };
 
-function setInk(event) {
+function blackInk(event) {
+    event.target.style.backgroundColor = default_color;
+}
+
+//Color Selector 
+const colorSelector = document.getElementById("colorSelector");
+colorSelector.addEventListener('input', colorModeFunc)
+
+function colorModeFunc() {
+    let value = sizeSlider_input.value;
+    let cell = container_div.children;
+    for (let i = 0; i < value * value; i++) {
+        cell[i].addEventListener('mouseover', colorInk);
+    }
+}
+
+function colorInk(event) {
     event.target.style.backgroundColor = colorSelector.value;
 }
 
